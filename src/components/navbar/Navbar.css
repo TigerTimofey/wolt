@@ -1,0 +1,25 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--brand-blue-color);
+  font-family: "Omnes Italic";
+  color: var(--brand-white-font-color);
+  padding: 10px 20px;
+  z-index: 1000;
+  transition: transform 0.3s ease-in-out;
+}
+
+.navbar-brand {
+  font-size: 44px;
+  font-weight: bold;
+}
+
+.navbar.hide {
+  transform: translateY(-100%);
+}
+
+.navbar.show {
+  transform: translateY(0);
+}

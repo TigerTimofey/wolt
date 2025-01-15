@@ -1,0 +1,52 @@
+.error-message {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: var(--error-color);
+  color: white;
+  padding: 15px 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+  font-size: 1em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  animation: slide-in 0.5s forwards;
+  z-index: 1000;
+}
+
+.error-message span {
+  flex-grow: 1;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5em;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+@keyframes slide-in {
+  from {
+    right: -400px;
+  }
+  to {
+    right: 20px;
+  }
+}
+
+@keyframes slide-out {
+  from {
+    right: 20px;
+  }
+  to {
+    right: -900px;
+  }
+}
+
+.error-message.closing {
+  animation: slide-out 0.5s forwards;
+}

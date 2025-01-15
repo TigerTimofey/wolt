@@ -1,0 +1,28 @@
+.calculate-button {
+  padding: 0.75rem 1.5rem;
+  width: 150px;
+  font-size: 1rem;
+  color: var(--brand-white-font-color);
+  background-color: var(--brand-blue-color);
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  text-align: center;
+  font-family: "Omnes Black", system-ui, sans-serif;
+  letter-spacing: 0.5px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.calculate-button:hover {
+  background-color: var(--brand-blue-color-hover);
+}
+
+.calculate-button:active {
+  transform: scale(0.98);
+}
+
+.user-input .calculate-button:focus,
+.user-input .calculate-button:active {
+  outline: none;
+  box-shadow: none;
+}

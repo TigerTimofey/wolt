@@ -1,0 +1,87 @@
+.input-field {
+  position: relative;
+  margin-bottom: 2.2rem;
+}
+.input-field select {
+  color: var(--main-light-gray-color);
+}
+.input-field select:user-valid {
+  color: var(--main-dark-grey-color);
+}
+
+.input-field input,
+.input-field select {
+  width: 90%;
+  padding: 1.1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: var(--brand-white-font-color);
+  transition: all 0.3s ease;
+}
+.input-field select {
+  width: 100%;
+}
+
+.input-field label {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  color: #888;
+  pointer-events: none;
+  transition: all 0.2s ease;
+  z-index: 1;
+}
+
+.input-field input:focus + label,
+.input-field input:not(:placeholder-shown) + label,
+.input-field select:focus + label,
+.input-field select:not(:empty) + label {
+  color: var(--main-dark-grey-color);
+  top: -0.9rem;
+  font-size: 0.9rem;
+}
+.input-field select:focus + label,
+.input-field select:valid + label {
+  color: var(--main-dark-grey-color);
+  top: -0.9rem;
+  font-size: 0.9rem;
+}
+
+.input-field input:focus,
+.input-field select:focus {
+  border-color: var(--main-dark-grey-color);
+  box-shadow: 0 0 0 1px rgba(9, 26, 45, 0.2);
+}
+
+.input-field input:disabled,
+.input-field select:disabled {
+  background-color: #e0e0e045;
+  border: 1px solid #ccc;
+  cursor: not-allowed;
+}
+
+.input-select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: var(--brand-white-font-color);
+  padding-right: 2.5rem;
+}
+.input-select option[value=""]:disabled {
+  display: none;
+}
+
+.button-container {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+}
+.input-field select:focus + label,
+.input-field select:not(:empty) + label {
+  color: var(--main-dark-grey-color);
+  top: -0.9rem;
+  font-size: 0.9rem;
+}

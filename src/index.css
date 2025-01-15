@@ -1,0 +1,21 @@
+#root {
+  /* max-width: 1280px; */
+  margin: 0;
+  /* padding: 2rem; */
+}
+
+:root {
+  font-family: "Omnes Regular";
+  line-height: 1.5;
+  font-weight: 400;
+
+  --main-dark-grey-color: #333;
+  --main-light-gray-color: #888;
+  --brand-blue-color: #07c4eb;
+  --brand-blue-color-hover: #0ba7c6;
+  --brand-white-font-color: #ffffff;
+  --brand-bg-font-color: #f8f8fb;
+  --error-color: #e03330c9;
+
+  background-color: var(--brand-bg-font-color);
+}

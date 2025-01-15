@@ -1,0 +1,17 @@
+@font-face {
+  font-family: "Omnes Black";
+  src: url("./omnes-2/Omnes Black.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Omnes Regular";
+  src: url("./omnes-2/Omnes Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Omnes SemiBold";
+  src: url("./omnes-2/Omnes SemiBold.ttf") format("truetype");
+}
+@font-face {
+  font-family: "Omnes Italic";
+  src: url("./omnes-2/Omnes Black Italic.ttf") format("truetype");
+}
