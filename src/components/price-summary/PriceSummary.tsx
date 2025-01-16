@@ -1,7 +1,6 @@
 import React from "react";
 import { convertToEUR, convertToKm } from "../../utils/convert";
 import "./PriceSummary.css";
-import yuhoRocket from "/yuho-rocket.png";
 import yuhoStar from "/star_yuho.png";
 import yuho from "/curious_yuho.png";
 

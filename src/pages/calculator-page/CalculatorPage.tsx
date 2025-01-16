@@ -97,7 +97,6 @@ const CalculatorPage: React.FC = () => {
       );
 
       if (distance >= maxValidRange || deliveryFeeCalc === 0) {
-        // setError("Delivery not available for this distance.");
         setDeliveryNotAvailable(true);
         setTimeout(() => {
           setDeliveryNotAvailable(false);

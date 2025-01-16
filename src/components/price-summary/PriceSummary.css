@@ -23,6 +23,7 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .welcome-container h2 {
+  color: var(--main-light-gray-color);
   font-family: "Omnes SemiB old", sans-serif;
 }
 @media (max-width: 768px) {
