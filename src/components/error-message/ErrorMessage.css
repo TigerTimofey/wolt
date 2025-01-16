@@ -1,9 +1,10 @@
 .error-message {
+  margin-left: 15px;
   position: fixed;
   top: 20px;
   right: 20px;
   background-color: var(--error-color);
-  color: white;
+  color: var(--brand-bg-font-color);
   padding: 15px 20px;
   border-radius: 5px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -23,12 +24,63 @@
 .close-btn {
   background: none;
   border: none;
-  color: white;
+  color: var(--brand-bg-font-color);
   font-size: 1.5em;
   cursor: pointer;
   margin-left: 10px;
 }
 
+.error-message.closing {
+  animation: slide-out 0.5s forwards;
+}
+
+.error-image {
+  width: 200px;
+}
+
+.error-container {
+  text-align: center;
+
+  width: 300px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+  font-family: "Omnes Regular", sans-serif;
+  font-size: 1rem;
+  color: var(--main-dark-grey-color);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.error-container h2 {
+  font-family: "Omnes SemiB old", sans-serif;
+  color: var(--error-color);
+  animation: shake 0.5s ease-in-out;
+}
+.error-image {
+  width: 300px;
+}
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-10px);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+  75% {
+    transform: translateX(-10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
 @keyframes slide-in {
   from {
     right: -400px;
@@ -45,8 +97,4 @@
   to {
     right: -900px;
   }
-}
-
-.error-message.closing {
-  animation: slide-out 0.5s forwards;
 }

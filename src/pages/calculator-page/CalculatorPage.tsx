@@ -2,6 +2,14 @@ import React, { useState } from "react";
 import PriceSummary from "../../components/price-summary/PriceSummary";
 import useLocation from "../../hooks/useLocation";
 import { fetchVenueStaticData, fetchVenueDynamicData } from "../../utils/api";
+import {
+  calculateDistance,
+  calculateDeliveryFee,
+} from "../../utils/calculations/mathUtils";
+import {
+  generateErrorMessage,
+  isCartValueValid,
+} from "../../components/error-message/errorMessageUtils";
 import UserInput from "../form/user-input/UserInputProps";
 
 import "./CalculatorPage.css";
@@ -22,26 +30,26 @@ const CalculatorPage: React.FC = () => {
     error: locationError,
   } = useLocation();
   const [error, setError] = useState<string>("");
+  const [deliveryNotAvailable, setDeliveryNotAvailable] =
+    useState<boolean>(false);
 
   const handleCalculate = async () => {
-    let errorMessage = "";
-
-    if (!venueSlug) {
-      errorMessage += "Venue is missing. ";
-    }
-    if (!cartValue) {
-      errorMessage += "Cart value is missing. ";
-    }
-    if (!latitude || !longitude) {
-      errorMessage += "Location is missing. ";
-    }
-
+    const errorMessage = generateErrorMessage(
+      venueSlug,
+      cartValue,
+      latitude,
+      longitude
+    );
     if (errorMessage) {
-      setError(errorMessage.trim());
+      setError(errorMessage);
       return;
     }
-
     setError("");
+
+    if (!isCartValueValid(cartValue)) {
+      setError("Invalid cart value.");
+      return;
+    }
 
     const cartValueNum = parseFloat(cartValue) * 100;
     setCartValueNum(cartValueNum);
@@ -59,6 +67,7 @@ const CalculatorPage: React.FC = () => {
       const minOrderNoSurcharge = deliverySpecs.order_minimum_no_surcharge;
       const basePrice = deliverySpecs.delivery_pricing.base_price;
       const distanceRanges = deliverySpecs.delivery_pricing.distance_ranges;
+      console.log("distanceRanges", distanceRanges);
 
       const surcharge =
         cartValueNum < minOrderNoSurcharge
@@ -73,11 +82,13 @@ const CalculatorPage: React.FC = () => {
       );
 
       // Check if the distance exceeds the maximum allowed distance in distance ranges
-      // const maxRange = distanceRanges[distanceRanges.length - 1].max;
-      // if (maxRange === 0 || distance >= maxRange) {
-      //   setError("Delivery not available for this distance.");
-      //   return;
-      // }
+      const validRanges = distanceRanges.filter(
+        (range: { max: number }) => range.max !== 0
+      );
+      const maxValidRange = validRanges[validRanges.length - 1].max;
+
+      console.log("maxValidRange", maxValidRange);
+      console.log("distance", distance);
 
       const deliveryFeeCalc = calculateDeliveryFee(
         distance,
@@ -85,8 +96,12 @@ const CalculatorPage: React.FC = () => {
         distanceRanges
       );
 
-      if (deliveryFeeCalc === 0) {
-        setError("Delivery not available for this distance.");
+      if (distance >= maxValidRange || deliveryFeeCalc === 0) {
+        // setError("Delivery not available for this distance.");
+        setDeliveryNotAvailable(true);
+        setTimeout(() => {
+          setDeliveryNotAvailable(false);
+        }, 3000);
         return;
       }
 
@@ -99,52 +114,6 @@ const CalculatorPage: React.FC = () => {
     } catch (err) {
       setError("Error fetching venue data.");
     }
-  };
-
-  const calculateDistance = (
-    lat1: number,
-    lon1: number,
-    lat2: number,
-    lon2: number
-  ) => {
-    const R = 6371;
-    const dLat = ((lat2 - lat1) * Math.PI) / 180;
-    const dLon = ((lon2 - lon1) * Math.PI) / 180;
-    const a =
-      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-      Math.cos((lat1 * Math.PI) / 180) *
-        Math.cos((lat2 * Math.PI) / 180) *
-        Math.sin(dLon / 2) *
-        Math.sin(dLon / 2);
-    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-    return Math.round(R * c * 1000);
-  };
-
-  const calculateDeliveryFee = (
-    distance: number,
-    basePrice: number,
-    distanceRanges: any
-  ) => {
-    let deliveryFee = 0;
-
-    for (let i = 0; i < distanceRanges.length; i++) {
-      if (
-        distance >= distanceRanges[i].min &&
-        (distance < distanceRanges[i].max || distanceRanges[i].max === 0)
-      ) {
-        const a = distanceRanges[i].a;
-        const b = distanceRanges[i].b;
-
-        deliveryFee = basePrice + a + (b * distance) / 10;
-
-        break;
-      }
-    }
-    if (deliveryFee === 0) {
-      return 0;
-    }
-
-    return deliveryFee;
   };
 
   return (
@@ -169,6 +138,7 @@ const CalculatorPage: React.FC = () => {
           deliveryFee={deliveryFee}
           deliveryDistance={deliveryDistance}
           totalPrice={totalPrice}
+          deliveryNotAvailable={deliveryNotAvailable}
         />
         <ErrorMessage
           message={error || locationError}
