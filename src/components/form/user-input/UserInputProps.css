@@ -13,10 +13,11 @@
 .input-field select {
   width: 90%;
   padding: 1.1rem;
+  color: var(--main-dark-grey-color);
   font-size: var(--font-size--standart);
   border: 1px solid #ccc;
   border-radius: 8px;
-  background-color: var(--brand-white-font-color);
+  background-color: var(--form-bg-color);
   transition: all 0.3s ease;
 }
 .input-field select {
@@ -29,7 +30,7 @@
   left: 1rem;
   transform: translateY(-50%);
   font-size: var(--font-size--standart);
-  color: #888;
+  color: var(--main-light-gray-color);
   pointer-events: none;
   transition: all 0.2s ease;
   z-index: 1;

@@ -4,7 +4,7 @@
   top: 20px;
   right: 20px;
   background-color: var(--error-color);
-  color: var(--brand-bg-font-color);
+  color: var(--error-font-color);
   padding: 15px 20px;
   border-radius: 5px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -24,7 +24,7 @@
 .close-btn {
   background: none;
   border: none;
-  color: var(--brand-bg-font-color);
+  color: var(--error-font-color);
   font-size: 1.5em;
   cursor: pointer;
   margin-left: 10px;
@@ -52,11 +52,16 @@
   text-align: center;
   font-family: "Omnes Regular", sans-serif;
   font-size: 1rem;
-  color: var(--main-dark-grey-color);
+  color: var(--error-font-color);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   user-select: none;
   -webkit-user-drag: none;
+}
+.container-card-error {
+  background-color: var(--error-container-color);
+  padding: 1px 5px;
+  border-radius: 8px;
 }
 
 .error-container h2 {
@@ -64,6 +69,7 @@
   color: var(--error-color);
   animation: shake 0.5s ease-in-out;
 }
+
 .error-image {
   width: 300px;
 }

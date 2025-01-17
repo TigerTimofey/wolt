@@ -10,17 +10,46 @@
 
   --font-size--standart: 1rem;
   --font-size--standart-order: 1.15rem;
-  /* 
-  --font-size--standart-bigger: 1.4rem;
-  --font-size--bigger: 1.3rem; */
+
+  /* Brand theme */
+  --main-component-info-color: #333;
 
   --main-dark-grey-color: #333;
+  --order-data-info: #001924;
   --main-light-gray-color: #888;
   --brand-blue-color: #07c4eb;
-  --brand-blue-color-hover: #0ba7c6;
+  --form-bg-color: #ffffff;
+
+  --brand-white-font-button-color: #ffffff;
+  --brand-blue-button-color: #07c4eb;
+  --brand-blue-button-color-hover: #0ba7c6;
+
   --brand-white-font-color: #ffffff;
   --brand-bg-font-color: #f8f8fb;
+
+  --error-font-color: #ffffff;
+  ----error-container-color: none;
   --error-color: #e03330c9;
+
+  /* Dark Theme */
+  /* --main-component-info-color: #ffffff;
+
+  --main-dark-grey-color: #ffffff;
+  --main-light-gray-color: #d6d0d0;
+  --order-data-info: #001924;
+  --brand-blue-color: #242424;
+  --form-bg-color: #3d3d3d;
+
+  --brand-white-font-button-color: #0092d0;
+  --brand-blue-button-color: #001924;
+  --brand-blue-button-color-hover: #002231;
+
+  --brand-white-font-color: #ffffff;
+  --brand-bg-font-color: #000000;
+
+  --error-container-color: #ffffff;
+  --error-font-color: #ffffff;
+  --error-color: #e03330c9; */
 
   background-color: var(--brand-bg-font-color);
 }

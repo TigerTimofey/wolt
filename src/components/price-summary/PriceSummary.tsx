@@ -25,7 +25,9 @@ const PriceSummary: React.FC<PriceSummaryProps> = ({
     <div className="price-summary-container">
       {deliveryNotAvailable ? (
         <div className="error-container">
-          <h2>Location not served</h2>
+          <div className="container-card-error">
+            <h2>Location not served</h2>
+          </div>
           <img
             src={yuho}
             alt="Yuho cant deliver to this location"
@@ -80,7 +82,9 @@ const PriceSummary: React.FC<PriceSummaryProps> = ({
         </div>
       ) : (
         <div className="welcome-container">
-          <h2>Please provide order data</h2>
+          <div className="container-card-info">
+            <h2>Please provide order data</h2>
+          </div>
           <img
             src={yuhoStar}
             alt="Yuho waiting for order"

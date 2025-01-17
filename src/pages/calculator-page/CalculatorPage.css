@@ -11,7 +11,7 @@ body {
 
 h1 {
   font-family: "Omnes Black", system-ui, sans-serif;
-  color: var(--main-dark-grey-color);
+  color: var(--main-component-info-color);
   font-size: 3em;
   line-height: 1.1;
   margin-bottom: 1rem;

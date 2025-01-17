@@ -23,3 +23,20 @@
 .navbar.show {
   transform: translateY(0);
 }
+.theme-toggle {
+  background: none;
+  border: none;
+  color: var(--brand-white-font-color);
+  font-size: 18px;
+  cursor: pointer;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.mode-style {
+  margin-right: 40px;
+  margin-top: 10px;
+  width: 30px;
+  height: 30px;
+}

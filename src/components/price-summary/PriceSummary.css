@@ -25,9 +25,10 @@
   user-select: none;
   -webkit-user-drag: none;
 }
+
 .welcome-container h2 {
   color: var(--main-light-gray-color);
-  font-family: "Omnes SemiB old", sans-serif;
+  font-family: "Omnes SemiBold", sans-serif;
 }
 @media (max-width: 768px) {
   .price-summary {
@@ -44,6 +45,7 @@
 }
 .price-summary h2 {
   font-family: "Omnes SemiBold", sans-serif;
+  color: var(--order-data-info);
 }
 .price-summary p {
   margin: 0.5rem 0;
@@ -53,6 +55,7 @@
   justify-content: space-between;
   align-items: center;
   transition: transform 0.3s ease;
+  color: var(--order-data-info);
 }
 
 .price-summary p span {
