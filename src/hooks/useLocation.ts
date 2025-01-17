@@ -16,14 +16,14 @@ const useLocation = () => {
           // setLongitude((24.759395).toString());
           // setLatitude((59.43869).toString());
           // tallin 1,03 km
-          setLongitude((24.769556).toString());
-          setLatitude((59.439106).toString());
+          // setLongitude((24.769556).toString());
+          // setLatitude((59.439106).toString());
           // tallin 1,56 km
           // setLongitude((24.778842).toString());
           // setLatitude((59.439986).toString());
           // tallin 7,03 km
-          // setLongitude((24.7941).toString());
-          // setLatitude((59.443327).toString());
+          setLongitude((24.7941).toString());
+          setLatitude((59.443327).toString());
           // setLatitude(position.coords.latitude.toString());
           // setLongitude(position.coords.longitude.toString());
         },

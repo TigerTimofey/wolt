@@ -3,7 +3,7 @@ import "./LocationButton.css";
 
 interface LocationButtonProps {
   onFetchLocation: () => void;
-  isLocationError: boolean; // <-- add this prop
+  isLocationError: boolean;
 }
 
 const LocationButton: React.FC<LocationButtonProps> = ({
@@ -12,7 +12,7 @@ const LocationButton: React.FC<LocationButtonProps> = ({
 }) => {
   return (
     <button
-      className={`location-button ${isLocationError ? "shake" : ""}`} // <-- apply 'shake' class if there's a location error
+      className={`location-button ${isLocationError ? "shake" : ""}`}
       onClick={onFetchLocation}
       data-test-id="getLocation"
     >
