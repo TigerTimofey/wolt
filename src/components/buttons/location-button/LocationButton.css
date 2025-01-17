@@ -26,3 +26,6 @@
   outline: none;
   box-shadow: none;
 }
+.user-input .location-button.shake {
+  animation: shake 0.5s ease-in-out;
+}

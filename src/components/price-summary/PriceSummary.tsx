@@ -1,5 +1,5 @@
 import React from "react";
-import { convertToEUR, convertToKm } from "../../utils/convert";
+import { convertToEUR, convertToKm } from "../../utils/calculations/convert";
 import "./PriceSummary.css";
 import yuhoStar from "/star_yuho.png";
 import yuho from "/curious_yuho.png";
@@ -51,12 +51,21 @@ const PriceSummary: React.FC<PriceSummaryProps> = ({
             </span>
           </p>
           <div className="divider-price-summary"></div>
+
           <p>
             Delivery distance{" "}
             <span data-raw-value={deliveryDistance}>
-              {convertToKm(deliveryDistance)} km
+              {" "}
+              <span
+                className="info-icon"
+                title={`${convertToKm(deliveryDistance)} km`}
+              >
+                i
+              </span>{" "}
+              {deliveryDistance} m
             </span>
           </p>
+
           <div className="divider-price-summary"></div>
           <p>
             Total price{" "}

@@ -21,7 +21,7 @@ const ErrorMessage: React.FC<ErrorMessageProps> = ({ message, onClose }) => {
       const timer = setTimeout(() => {
         setIsClosing(true);
         setTimeout(() => onClose(), 500);
-      }, 8000);
+      }, 4000);
       return () => clearTimeout(timer);
     }
   }, [message, onClose]);

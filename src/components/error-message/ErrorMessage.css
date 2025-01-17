@@ -57,7 +57,7 @@
 }
 
 .error-container h2 {
-  font-family: "Omnes SemiB old", sans-serif;
+  font-family: "Omnes SemiBold", sans-serif;
   color: var(--error-color);
   animation: shake 0.5s ease-in-out;
 }
@@ -69,13 +69,13 @@
     transform: translateX(0);
   }
   25% {
-    transform: translateX(-10px);
+    transform: translateX(-5px);
   }
   50% {
-    transform: translateX(10px);
+    transform: translateX(5px);
   }
   75% {
-    transform: translateX(-10px);
+    transform: translateX(-5px);
   }
   100% {
     transform: translateX(0);
