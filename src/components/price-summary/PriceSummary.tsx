@@ -25,7 +25,7 @@ const PriceSummary: React.FC<PriceSummaryProps> = ({
     <div className="price-summary-container">
       {deliveryNotAvailable ? (
         <div className="error-container">
-          <h2>Distance not served</h2>
+          <h2>Location not served</h2>
           <img src={yuho} alt="Error rocket" className="error-image" />
         </div>
       ) : totalPrice > 0 ? (
