@@ -8,6 +8,12 @@
   font-family: "Omnes Regular";
   line-height: 1.5;
 
+  --font-size--standart: 1rem;
+  --font-size--standart-order: 1.15rem;
+  /* 
+  --font-size--standart-bigger: 1.4rem;
+  --font-size--bigger: 1.3rem; */
+
   --main-dark-grey-color: #333;
   --main-light-gray-color: #888;
   --brand-blue-color: #07c4eb;

@@ -13,7 +13,7 @@
 .input-field select {
   width: 90%;
   padding: 1.1rem;
-  font-size: 1rem;
+  font-size: var(--font-size--standart);
   border: 1px solid #ccc;
   border-radius: 8px;
   background-color: var(--brand-white-font-color);
@@ -28,7 +28,7 @@
   top: 50%;
   left: 1rem;
   transform: translateY(-50%);
-  font-size: 1rem;
+  font-size: var(--font-size--standart);
   color: #888;
   pointer-events: none;
   transition: all 0.2s ease;
@@ -41,13 +41,13 @@
 .input-field select:not(:empty) + label {
   color: var(--main-dark-grey-color);
   top: -0.9rem;
-  font-size: 0.9rem;
+  font-size: var(--font-size--standart);
 }
 .input-field select:focus + label,
 .input-field select:valid + label {
   color: var(--main-dark-grey-color);
   top: -0.9rem;
-  font-size: 0.9rem;
+  font-size: var(--font-size--standart);
 }
 
 .input-field input:focus,
@@ -83,5 +83,5 @@
 .input-field select:not(:empty) + label {
   color: var(--main-dark-grey-color);
   top: -0.9rem;
-  font-size: 0.9rem;
+  font-size: var(--font-size--standart);
 }

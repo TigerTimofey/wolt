@@ -34,14 +34,16 @@ const UserInput: React.FC<UserInputProps> = ({
 }) => {
   return (
     <>
-      <div className="user-input">
-        <SelectField
-          label="Venue Slug"
-          value={venueSlug}
-          onChange={(e) => setVenueSlug(e.target.value)}
-          testId="venueSlug"
-          options={venueOptions}
-        />
+      <div className="user-input ">
+        <div className="input-field">
+          <SelectField
+            label="Venue Slug"
+            value={venueSlug}
+            onChange={(e) => setVenueSlug(e.target.value)}
+            testId="venueSlug"
+            options={venueOptions}
+          />
+        </div>
 
         <div className="input-field">
           <InputField

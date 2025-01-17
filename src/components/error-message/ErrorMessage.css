@@ -54,6 +54,9 @@
   font-size: 1rem;
   color: var(--main-dark-grey-color);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 .error-container h2 {

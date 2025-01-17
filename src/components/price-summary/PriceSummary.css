@@ -6,7 +6,7 @@
   padding: 1.5rem;
   text-align: center;
   font-family: "Omnes Regular", sans-serif;
-  font-size: 1rem;
+  font-size: var(--font-size--standart);
   color: var(--main-dark-grey-color);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -18,9 +18,12 @@
   padding: 1.5rem;
   text-align: center;
   font-family: "Omnes Regular", sans-serif;
-  font-size: 1rem;
+  font-size: var(--font-size--standart);
   color: var(--main-dark-grey-color);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  user-select: none;
+  -webkit-user-drag: none;
 }
 .welcome-container h2 {
   color: var(--main-light-gray-color);
@@ -36,12 +39,15 @@
   transform: translateY(-3px) scale(1.01);
   box-shadow: 0 8px 22px rgba(0, 0, 0, 0.15);
 }
+.welcome-container {
+  font-family: "Omnes SemiBold", sans-serif;
+}
 .price-summary h2 {
   font-family: "Omnes SemiBold", sans-serif;
 }
 .price-summary p {
   margin: 0.5rem 0;
-  font-size: 1.2rem;
+  font-size: var(--font-size--standart-order);
   line-height: 1.5;
   display: flex;
   justify-content: space-between;
@@ -70,7 +76,7 @@
   }
 
   .price-summary p {
-    font-size: 1rem;
+    font-size: var(--font-size--standart);
   }
 }
 .info-icon {
