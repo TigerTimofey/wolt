@@ -1,8 +1,8 @@
 import React from "react";
 import { convertToEUR, convertToKm } from "../../utils/calculations/convert";
 import "./PriceSummary.css";
-import yuhoStar from "/star_yuho.png";
-import yuho from "/curious_yuho.png";
+import yuhoStar from "/images/brand-yuho/star_yuho.png";
+import yuho from "/images/brand-yuho/curious_yuho.png";
 
 interface PriceSummaryProps {
   cartValue: number;

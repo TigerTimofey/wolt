@@ -11,6 +11,7 @@
   font-family: "Omnes Black", system-ui, sans-serif;
   letter-spacing: 1px;
   transition: background-color 0.3s ease, transform 0.2s ease;
+  border: var(--brand-darkblue-border-button-color);
 }
 
 .calculate-button:hover {

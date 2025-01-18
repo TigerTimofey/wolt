@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
-import dark from "/dark.png";
-import light from "/light.png";
+import dark from "/images/dark-light-theme/dark.png";
+import light from "/images/dark-light-theme/light.png";
+import highContrast from "/images/contrast/high-contrast.png";
+import lowContrast from "/images/contrast/low-contrast.png";
 
 // Define CSS variables for themes
 const themes: Record<string, Record<string, string>> = {
@@ -16,6 +18,9 @@ const themes: Record<string, Record<string, string>> = {
     "--brand-white-font-button-color": "#ffffff",
     "--brand-blue-button-color": "#07c4eb",
     "--brand-blue-button-color-hover": "#0ba7c6",
+    "--brand-darkblue-border-button-color": "none",
+    "--error-font-color": "#ffffff",
+    "--error-color": "#e03330c9",
   },
   dark: {
     "--main-component-info-color": "#ffffff",
@@ -29,34 +34,63 @@ const themes: Record<string, Record<string, string>> = {
     "--brand-white-font-button-color": "#0092d0",
     "--brand-blue-button-color": "#001924",
     "--brand-blue-button-color-hover": "#002231",
+    "--brand-darkblue-border-button-color": "2px solid #0092d0",
+  },
+  highContrast: {
+    // High contrast overrides only for the light theme
+    "--main-component-info-color": "#000000",
+    "--main-dark-grey-color": "#000000",
+    "--main-light-gray-color": "#000000",
+    "--error-color": "#e03330",
+  },
+  lowContrast: {
+    // Low contrast overrides only for the light theme
+    "--main-light-gray-color": "#888",
+    "--error-color": "#e03330c9",
+  },
+  highContrastDark: {
+    "--main-light-gray-color": "#ffffff",
+    "--brand-white-font-button-color": "#ffffff",
+    "--brand-blue-button-color": "#000000",
+    "--brand-blue-button-color-hover": "#333333",
+    "--brand-darkblue-border-button-color": "2px solid #ffffff",
+    "--error-color": "#e03330",
   },
 };
 
 const ThemeManager: React.FC = () => {
   const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
-
-  // Load the theme from localStorage
+  const [isHighContrast, setIsHighContrast] = useState<boolean>(false);
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme");
-    setIsDarkMode(savedTheme === "dark");
-  }, []);
-
-  // Update CSS variables based on the theme
-  useEffect(() => {
-    const theme = isDarkMode ? "dark" : "light";
-    localStorage.setItem("theme", theme); // persist theme in localStorage
-
     const root = document.documentElement;
-    const themeVariables = themes[theme];
 
-    // Apply the theme variables
-    Object.keys(themeVariables).forEach((key) => {
-      root.style.setProperty(key, themeVariables[key]);
+    // Apply base theme first
+    const baseTheme = isDarkMode ? "dark" : "light";
+    const baseThemeVariables = themes[baseTheme];
+
+    Object.keys(baseThemeVariables).forEach((key) => {
+      root.style.setProperty(key, baseThemeVariables[key]);
     });
-  }, [isDarkMode]);
+
+    // Apply contrast styles for the light theme
+    if (!isDarkMode && isHighContrast) {
+      const contrastVariables = themes["highContrast"];
+      Object.keys(contrastVariables).forEach((key) => {
+        root.style.setProperty(key, contrastVariables[key]);
+      });
+    }
+
+    // Apply contrast styles for the dark theme
+    if (isDarkMode && isHighContrast) {
+      const contrastVariablesDark = themes["highContrastDark"];
+      Object.keys(contrastVariablesDark).forEach((key) => {
+        root.style.setProperty(key, contrastVariablesDark[key]);
+      });
+    }
+  }, [isDarkMode, isHighContrast]);
 
   return (
-    <>
+    <div className="theme-toggle-container">
       <button
         className="theme-toggle"
         onClick={() => setIsDarkMode((prevState) => !prevState)}
@@ -67,7 +101,17 @@ const ThemeManager: React.FC = () => {
           <img className="mode-style" src={dark} alt="dark mode" />
         )}
       </button>
-    </>
+      <button
+        className="theme-toggle"
+        onClick={() => setIsHighContrast((prevState) => !prevState)}
+      >
+        {isHighContrast ? (
+          <img className="mode-style" src={highContrast} alt="high contrast" />
+        ) : (
+          <img className="mode-style" src={lowContrast} alt="low contrast" />
+        )}
+      </button>
+    </div>
   );
 };
 

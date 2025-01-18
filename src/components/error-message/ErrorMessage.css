@@ -60,8 +60,9 @@
 }
 .container-card-error {
   background-color: var(--error-container-color);
-  padding: 1px 5px;
+  padding: 8px;
   border-radius: 8px;
+  animation: shake 0.5s ease-in-out;
 }
 
 .error-container h2 {
