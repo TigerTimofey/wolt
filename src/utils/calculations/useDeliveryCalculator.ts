@@ -15,6 +15,7 @@ import {
 const fetchVenueData = async (venueSlug: string) => {
   const venueStatic = await fetchVenueStaticData(venueSlug);
   const venueDynamic = await fetchVenueDynamicData(venueSlug);
+
   return { venueStatic, venueDynamic };
 };
 

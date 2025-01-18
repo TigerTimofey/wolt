@@ -1,6 +1,6 @@
 import "./Navbar.css";
 import { useScrollVisibility } from "../../hooks/styles/scrollUtils";
-import { ThemeManager } from "../../hooks/styles/themes";
+import { ThemeManager } from "../../hooks/styles/Themes";
 
 const Navbar = () => {
   const show = useScrollVisibility();

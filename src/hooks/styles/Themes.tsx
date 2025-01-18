@@ -6,6 +6,7 @@ import lowContrast from "/images/contrast/low-contrast.png";
 
 const themes: Record<string, Record<string, string>> = {
   light: {
+    "--table-info-calculator-color": "#333",
     "--main-component-info-color": "#333",
     "--main-dark-grey-color": "#333",
     "--main-light-gray-color": "#888",
@@ -43,7 +44,7 @@ const themes: Record<string, Record<string, string>> = {
   },
   lowContrast: {
     "--main-light-gray-color": "#888",
-    "--error-color": "#e03330c9",
+    "--error-color": "#2b1110c8",
   },
   highContrastDark: {
     "--main-light-gray-color": "#ffffff",

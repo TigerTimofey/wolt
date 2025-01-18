@@ -7,7 +7,6 @@
   text-align: center;
   font-family: "Omnes Regular", sans-serif;
   font-size: var(--font-size--standart);
-  color: var(--main-dark-grey-color);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .welcome-container {
@@ -47,7 +46,7 @@ input {
 }
 .price-summary h2 {
   font-family: "Omnes SemiBold", sans-serif;
-  color: var(--order-data-info);
+  color: var(main-light-gray-color);
 }
 .price-summary p {
   margin: 0.5rem 0;
