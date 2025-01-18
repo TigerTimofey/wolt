@@ -25,13 +25,6 @@ export const calculateDeliveryFee = (
   let deliveryFee = 0;
 
   for (let i = 0; i < distanceRanges.length; i++) {
-    console.log("_______________________________");
-    console.log(`Checking range ${i}:`);
-    console.log(`Distance: ${distance} meters`);
-    console.log(
-      `Range: ${distanceRanges[i].min} - ${distanceRanges[i].max} meters`
-    );
-
     if (
       distance >= distanceRanges[i].min &&
       (distance < distanceRanges[i].max || distanceRanges[i].max === 0)
@@ -39,20 +32,10 @@ export const calculateDeliveryFee = (
       const a = distanceRanges[i].a;
       const b = distanceRanges[i].b;
 
-      console.log(`Base Price: ${basePrice}`);
-      console.log(`a (constant): ${a}`);
-      console.log(`b (multiplier): ${b}`);
-      console.log(
-        `Calculated Delivery Fee = ${basePrice} + ${a} + (${b} * ${distance}) / 10`
-      );
-
       deliveryFee = basePrice + a + (b * distance) / 10;
 
-      console.log("deliveryFee calculated: ", deliveryFee);
       break;
     } else {
-      console.log("Distance does not match this range.");
-      console.log("_______________________________");
     }
   }
 

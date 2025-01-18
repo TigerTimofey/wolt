@@ -1,7 +1,7 @@
-import { useState, useEffect } from "react";
+import React from "react";
 
 export const useScrollVisibility = () => {
-  const [isVisible, setIsVisible] = useState(true);
+  const [isVisible, setIsVisible] = React.useState(true);
 
   const handleScroll = () => {
     if (window.scrollY === 0) {
@@ -11,7 +11,7 @@ export const useScrollVisibility = () => {
     }
   };
 
-  useEffect(() => {
+  React.useEffect(() => {
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);

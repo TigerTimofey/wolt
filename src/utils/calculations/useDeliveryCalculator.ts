@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import React, { useCallback } from "react";
 import {
   fetchVenueStaticData,
   fetchVenueDynamicData,
@@ -52,14 +52,15 @@ export const useDeliveryCalculator = (
   latitude: string,
   longitude: string
 ) => {
-  const [smallOrderSurcharge, setSmallOrderSurcharge] = useState<number>(0);
-  const [deliveryFee, setDeliveryFee] = useState<number>(0);
-  const [deliveryDistance, setDeliveryDistance] = useState<number>(0);
-  const [totalPrice, setTotalPrice] = useState<number>(0);
-  const [cartValueNum, setCartValueNum] = useState<number>(0);
-  const [error, setError] = useState<string>("");
+  const [smallOrderSurcharge, setSmallOrderSurcharge] =
+    React.useState<number>(0);
+  const [deliveryFee, setDeliveryFee] = React.useState<number>(0);
+  const [deliveryDistance, setDeliveryDistance] = React.useState<number>(0);
+  const [totalPrice, setTotalPrice] = React.useState<number>(0);
+  const [cartValueNum, setCartValueNum] = React.useState<number>(0);
+  const [error, setError] = React.useState<string>("");
   const [deliveryNotAvailable, setDeliveryNotAvailable] =
-    useState<boolean>(false);
+    React.useState<boolean>(false);
 
   const handleCalculate = useCallback(async () => {
     const errorMessage = generateErrorMessage(

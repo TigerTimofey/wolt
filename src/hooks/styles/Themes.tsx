@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import dark from "/images/dark-light-theme/dark.png";
 import light from "/images/dark-light-theme/light.png";
 import highContrast from "/images/contrast/high-contrast.png";
 import lowContrast from "/images/contrast/low-contrast.png";
 
-// Define CSS variables for themes
 const themes: Record<string, Record<string, string>> = {
   light: {
     "--main-component-info-color": "#333",
@@ -37,14 +36,12 @@ const themes: Record<string, Record<string, string>> = {
     "--brand-darkblue-border-button-color": "2px solid #0092d0",
   },
   highContrast: {
-    // High contrast overrides only for the light theme
     "--main-component-info-color": "#000000",
     "--main-dark-grey-color": "#000000",
     "--main-light-gray-color": "#000000",
     "--error-color": "#e03330",
   },
   lowContrast: {
-    // Low contrast overrides only for the light theme
     "--main-light-gray-color": "#888",
     "--error-color": "#e03330c9",
   },
@@ -59,12 +56,11 @@ const themes: Record<string, Record<string, string>> = {
 };
 
 const ThemeManager: React.FC = () => {
-  const [isDarkMode, setIsDarkMode] = useState<boolean>(false);
-  const [isHighContrast, setIsHighContrast] = useState<boolean>(false);
-  useEffect(() => {
+  const [isDarkMode, setIsDarkMode] = React.useState<boolean>(false);
+  const [isHighContrast, setIsHighContrast] = React.useState<boolean>(false);
+  React.useEffect(() => {
     const root = document.documentElement;
 
-    // Apply base theme first
     const baseTheme = isDarkMode ? "dark" : "light";
     const baseThemeVariables = themes[baseTheme];
 
@@ -72,7 +68,6 @@ const ThemeManager: React.FC = () => {
       root.style.setProperty(key, baseThemeVariables[key]);
     });
 
-    // Apply contrast styles for the light theme
     if (!isDarkMode && isHighContrast) {
       const contrastVariables = themes["highContrast"];
       Object.keys(contrastVariables).forEach((key) => {
@@ -80,7 +75,6 @@ const ThemeManager: React.FC = () => {
       });
     }
 
-    // Apply contrast styles for the dark theme
     if (isDarkMode && isHighContrast) {
       const contrastVariablesDark = themes["highContrastDark"];
       Object.keys(contrastVariablesDark).forEach((key) => {

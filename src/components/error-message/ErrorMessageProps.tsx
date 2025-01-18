@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import "./ErrorMessage.css";
 
 interface ErrorMessageProps {
@@ -7,7 +7,7 @@ interface ErrorMessageProps {
 }
 
 const ErrorMessage: React.FC<ErrorMessageProps> = ({ message, onClose }) => {
-  const [isClosing, setIsClosing] = useState(false);
+  const [isClosing, setIsClosing] = React.useState(false);
 
   const handleClose = () => {
     setIsClosing(true);
@@ -16,7 +16,7 @@ const ErrorMessage: React.FC<ErrorMessageProps> = ({ message, onClose }) => {
     }, 500);
   };
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (message) {
       const timer = setTimeout(() => {
         setIsClosing(true);
@@ -26,7 +26,7 @@ const ErrorMessage: React.FC<ErrorMessageProps> = ({ message, onClose }) => {
     }
   }, [message, onClose]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     setIsClosing(false);
   }, [message]);
 

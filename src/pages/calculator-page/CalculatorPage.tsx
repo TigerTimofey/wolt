@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import PriceSummary from "../../components/price-summary/PriceSummary";
 import useLocation from "../../hooks/useLocation";
 import UserInput from "../../components/form/user-input/UserInputProps";
@@ -8,8 +8,8 @@ import { useDeliveryCalculator } from "../../utils/calculations/useDeliveryCalcu
 import "./CalculatorPage.css";
 
 const CalculatorPage: React.FC = () => {
-  const [venueSlug, setVenueSlug] = useState<string>("");
-  const [cartValue, setCartValue] = useState<string>("");
+  const [venueSlug, setVenueSlug] = React.useState<string>("");
+  const [cartValue, setCartValue] = React.useState<string>("");
 
   const {
     latitude,
