@@ -18,7 +18,7 @@ const CalculateButton: React.FC<CalculateButtonProps> = ({
       className="calculate-button"
       onClick={onClick}
       disabled={disabled}
-      data-test-id={testId}
+      data-testid={testId}
     >
       Calculate
     </button>
