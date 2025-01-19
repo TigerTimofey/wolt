@@ -1,8 +1,8 @@
 import React from "react";
-import dark from "/images/dark-light-theme/dark.png";
-import light from "/images/dark-light-theme/light.png";
-import highContrast from "/images/contrast/high-contrast.png";
-import lowContrast from "/images/contrast/low-contrast.png";
+import dark from "../../assets/images/dark-light-theme/dark.png";
+import light from "../../assets/images/dark-light-theme/light.png";
+import highContrast from "../../assets/images/contrast/high-contrast.png";
+import lowContrast from "../../assets/images/contrast/low-contrast.png";
 
 const themes: Record<string, Record<string, string>> = {
   light: {

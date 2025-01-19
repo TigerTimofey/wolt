@@ -18,7 +18,9 @@ const CalculateButton: React.FC<CalculateButtonProps> = ({
       className="calculate-button"
       onClick={onClick}
       disabled={disabled}
-      data-testid={testId}
+      data-test-id={testId}
+      title="Click to calculate your order"
+      aria-label="Calculate order"
     >
       Calculate
     </button>

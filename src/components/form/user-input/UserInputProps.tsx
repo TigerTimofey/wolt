@@ -1,8 +1,8 @@
 import React from "react";
-import InputField from "../input-fields/InputField";
+import InputField from "./input-fields/InputField";
 import LocationButton from "../../buttons/location-button/LocationButton";
 import CalculateButton from "../../buttons/calculate-button/CalculateButton";
-import SelectField from "../input-fields/SelectField";
+import SelectField from "./input-fields/SelectField";
 
 import { venueOptions } from "../../../utils/fetch/venueOptions";
 
@@ -42,6 +42,7 @@ const UserInput: React.FC<UserInputProps> = ({
             onChange={(e) => setVenueSlug(e.target.value)}
             testId="venueSlug"
             options={venueOptions}
+            aria-label="Select venue"
           />
         </div>
 
@@ -52,8 +53,10 @@ const UserInput: React.FC<UserInputProps> = ({
             value={cartValue}
             onChange={(e) => setCartValue(e.target.value)}
             testId="cartValue"
+            aria-label="cart value"
           />
         </div>
+
         <div className="input-field">
           <InputField
             label="Latitude"
@@ -61,6 +64,7 @@ const UserInput: React.FC<UserInputProps> = ({
             value={latitude}
             onChange={() => {}}
             testId="userLatitude"
+            aria-label="user latitude"
             disabled
           />
         </div>
@@ -71,6 +75,7 @@ const UserInput: React.FC<UserInputProps> = ({
             value={longitude}
             onChange={() => {}}
             testId="userLongitude"
+            aria-label="user longitude"
             disabled
           />
         </div>

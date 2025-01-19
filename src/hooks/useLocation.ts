@@ -10,20 +10,20 @@ const useLocation = () => {
       const options = {
         enableHighAccuracy: false,
         timeout: 5000,
-        maximumAge: Infinity,
+        maximumAge: 0,
       };
 
       navigator.geolocation.getCurrentPosition(
         (position) => {
           //     // tallin 0,45  km
-          // setLongitude((24.759395).toString());
-          // setLatitude((59.43869).toString());
+          setLongitude((24.759395).toString());
+          setLatitude((59.43869).toString());
           //     // tallin 1,03 km
           //     setLongitude((24.769556).toString());
           //     setLatitude((59.439106).toString());
 
-          setLatitude(position.coords.latitude.toString());
-          setLongitude(position.coords.longitude.toString());
+          // setLatitude(position.coords.latitude.toString());
+          // setLongitude(position.coords.longitude.toString());
         },
         () => setError("Unable to retrieve location."),
         options

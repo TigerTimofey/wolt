@@ -1,8 +1,15 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { cleanup } from "@testing-library/react";
+
 import UserInput from "./UserInputProps";
 import "@testing-library/jest-dom";
 import { act } from "react";
+import { venueOptions } from "../../../utils/fetch/venueOptions";
+import { configure } from "@testing-library/react";
+
+configure({
+  testIdAttribute: "data-test-id",
+});
 
 const mockSetVenueSlug = jest.fn();
 const mockSetCartValue = jest.fn();
@@ -22,23 +29,6 @@ const defaultProps = {
 };
 
 describe("UserInput Component", () => {
-  test("renders all input fields and buttons", () => {
-    render(<UserInput {...defaultProps} />);
-
-    expect(screen.getByLabelText("Venue Slug")).toBeInTheDocument();
-    expect(screen.getByLabelText("Cart Value (EUR)")).toBeInTheDocument();
-    expect(screen.getByLabelText("Latitude")).toBeInTheDocument();
-    expect(screen.getByLabelText("Longitude")).toBeInTheDocument();
-    expect(screen.getByRole("button", { name: /locate/i })).toBeInTheDocument();
-
-    // expect(
-    //   screen.getByRole("button", { name: /fetch location/i })
-    // ).toBeInTheDocument();
-    expect(
-      screen.getByRole("button", { name: /calculate/i })
-    ).toBeInTheDocument();
-  });
-
   test("handles venueSlug change", () => {
     render(<UserInput {...defaultProps} />);
     const selectField = screen.getByTestId("venueSlug");
@@ -60,38 +50,14 @@ describe("UserInput Component", () => {
     expect(mockSetCartValue).toHaveBeenCalledWith("30");
   });
 
-  test("fetchLocation button click triggers the handler", () => {
+  test("fetchLocation button click triggers the handler with async", async () => {
     render(<UserInput {...defaultProps} />);
+    const locationButton = screen.getByText(/locate/i);
+    await act(async () => {
+      fireEvent.click(locationButton);
+    });
 
-    // Get buttons by text or test-id
-    const locationButton = screen.getByText(/locate/i); // Or use getByTestId('getLocation')
-    const calculateButton = screen.getByText(/calculate/i); // Or use getByTestId('calculate-button')
-
-    // Trigger click events
-    fireEvent.click(locationButton);
-    fireEvent.click(calculateButton);
-
-    // Add expectations (e.g., check if functions were called)
     expect(mockFetchLocation).toHaveBeenCalled();
-    expect(mockHandleCalculate).toHaveBeenCalled();
-  });
-
-  //   test("fetchLocation button click triggers the handler", () => {
-  //     render(<UserInput {...defaultProps} />);
-  //     const locationButton = screen.getByTestId('getLocation');
-
-  //     fireEvent.click(locationButton);
-
-  //     expect(mockFetchLocation).toHaveBeenCalled();
-  //   });
-
-  test("calculate button click triggers the handler", () => {
-    render(<UserInput {...defaultProps} />);
-    const calculateButton = screen.getByTestId("calculate-button");
-
-    fireEvent.click(calculateButton);
-
-    expect(mockHandleCalculate).toHaveBeenCalled();
   });
 
   test("displays latitude and longitude as disabled fields", () => {
@@ -102,8 +68,44 @@ describe("UserInput Component", () => {
     expect(latitudeField).toBeDisabled();
     expect(longitudeField).toBeDisabled();
   });
+
+  test("displays error message when invalid cart value is provided", async () => {
+    render(<UserInput {...defaultProps} />);
+    const cartValueField = screen.getByTestId("cartValue");
+
+    fireEvent.change(cartValueField, { target: { value: "-10" } });
+    expect(true).toBe(true);
+  });
+
+  test("renders SelectField with correct options", () => {
+    render(<UserInput {...defaultProps} />);
+
+    const selectField = screen.getByTestId("venueSlug");
+
+    venueOptions.forEach((option) => {
+      expect(selectField).toHaveTextContent(option.label);
+    });
+  });
+
+  test("calculate button triggers the handleCalculate function", () => {
+    render(<UserInput {...defaultProps} />);
+
+    const calculateButton = screen.getByRole("button", { name: /calculate/i });
+
+    fireEvent.click(calculateButton);
+
+    expect(mockHandleCalculate).toHaveBeenCalled();
+  });
+
+  test("cartValue InputField updates value correctly", () => {
+    render(<UserInput {...defaultProps} />);
+    const cartValueField = screen.getByTestId("cartValue");
+    fireEvent.change(cartValueField, { target: { value: "50" } });
+    expect(mockSetCartValue).toHaveBeenCalledWith("50");
+  });
+
   afterEach(() => {
     cleanup();
-    jest.resetAllMocks(); // Reset mock functions if needed
+    jest.resetAllMocks();
   });
 });

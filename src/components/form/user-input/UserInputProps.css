@@ -18,6 +18,9 @@
   border-radius: 8px;
   background-color: var(--form-bg-color);
   transition: all 0.3s ease;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
 .input-field select {
   width: 100%;

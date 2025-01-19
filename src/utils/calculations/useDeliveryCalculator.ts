@@ -72,7 +72,6 @@ export const useDeliveryCalculator = (
     );
     if (errorMessage) {
       setError(errorMessage);
-      console.log(errorMessage);
 
       return;
     }

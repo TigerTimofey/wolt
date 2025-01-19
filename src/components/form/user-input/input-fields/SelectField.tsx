@@ -24,7 +24,7 @@ const SelectField: React.FC<SelectFieldProps> = ({
         id={testId}
         value={value}
         onChange={onChange}
-        data-testid={testId}
+        data-test-id={testId}
         disabled={disabled}
         className="input-text"
       >
