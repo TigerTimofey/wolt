@@ -29,9 +29,11 @@ describe("UserInput Component", () => {
     expect(screen.getByLabelText("Cart Value (EUR)")).toBeInTheDocument();
     expect(screen.getByLabelText("Latitude")).toBeInTheDocument();
     expect(screen.getByLabelText("Longitude")).toBeInTheDocument();
-    expect(
-      screen.getByRole("button", { name: /fetch location/i })
-    ).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: /locate/i })).toBeInTheDocument();
+
+    // expect(
+    //   screen.getByRole("button", { name: /fetch location/i })
+    // ).toBeInTheDocument();
     expect(
       screen.getByRole("button", { name: /calculate/i })
     ).toBeInTheDocument();
@@ -62,9 +64,8 @@ describe("UserInput Component", () => {
     render(<UserInput {...defaultProps} />);
 
     // Get buttons by text or test-id
-    const locationButton = screen.getByTestId("getLocation");
-
-    const calculateButton = screen.getByTestId("calculate-button");
+    const locationButton = screen.getByText(/locate/i); // Or use getByTestId('getLocation')
+    const calculateButton = screen.getByText(/calculate/i); // Or use getByTestId('calculate-button')
 
     // Trigger click events
     fireEvent.click(locationButton);
