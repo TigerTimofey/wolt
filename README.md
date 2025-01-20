@@ -2,10 +2,11 @@
 # Delivery Order Price Calculator 
 
 ## <span style="color:rgb(189, 198, 193)">Table of Contents</span>
-[📖 About](#about)  
-[🖼 Images](#images)  
-[💻 Installation](#installation)  
-[🔧 Versions](#versions)  
+[📖 About](#about) <br/>
+[🖼 Images](#images)   <br/>
+[💻 Installation](#installation)   <br/>
+[📍Simulate data](#simulate-data-optional) <br/>
+[🔧 Versions](#versions)   <br/>
 [👤 Applicant](#applicant)  
 
 ## <span style="color:rgb(189, 198, 193)">About</span>
@@ -81,6 +82,38 @@ To prepare the application for production, run the build command:
 ```bash
 npm run build
 ```
+## <span style="color:rgb(189, 198, 193)">Simulate data (optional)</span>
+
+It is possible to simulate your position to test Functionality. <br/>
+>  The component: `src/hooks/useLocation.ts`
+
+For example, for Tallinn
+- Instead this part of code:
+```javascript
+navigator.geolocation.getCurrentPosition(
+        (position) => {
+          setLatitude(position.coords.latitude.toString());
+          setLongitude(position.coords.longitude.toString());
+        },
+        () => setError("Unable to retrieve location."),
+        options
+      );
+```
+- Use this part of code:
+
+```javascript 
+navigator.geolocation.getCurrentPosition(
+        (position) => {
+          // tallinn 0,45 km
+          setLongitude((24.759395).toString());
+          setLatitude((59.43869).toString());
+        },
+        () => setError("Unable to retrieve location."),
+        options
+      );
+```
+
+
 ## <span style="color:rgb(189, 198, 193)">Versions</span>
 
 | Dependency    | Version   |
