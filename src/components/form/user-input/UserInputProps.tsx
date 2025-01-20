@@ -19,6 +19,9 @@ interface UserInputProps {
   handleCalculate: () => void;
   fetchLocation: () => void;
   isLocationError: boolean;
+  isVenueError: boolean;
+  isCartError: boolean;
+  
 }
 
 const UserInput: React.FC<UserInputProps> = ({
@@ -31,11 +34,15 @@ const UserInput: React.FC<UserInputProps> = ({
   fetchLocation,
   handleCalculate,
   isLocationError,
+  isVenueError,
+  isCartError
 }) => {
+
   return (
     <>
-      <div className="user-input ">
-        <div className="input-field">
+      <div className="user-input">
+        <div className={`input-field ${isVenueError ? "error" : ""}`}>
+      
           <SelectField
             label="Venue Slug"
             value={venueSlug}
@@ -46,7 +53,7 @@ const UserInput: React.FC<UserInputProps> = ({
           />
         </div>
 
-        <div className="input-field">
+        <div className={`input-field ${isCartError ? "error" : ""}`}>
           <InputField
             label="Cart Value (EUR)"
             type="number"
@@ -57,7 +64,7 @@ const UserInput: React.FC<UserInputProps> = ({
           />
         </div>
 
-        <div className="input-field">
+        <div className={`input-field ${isLocationError ? "error" : ""}`}>
           <InputField
             label="Latitude"
             type="number"
@@ -68,7 +75,7 @@ const UserInput: React.FC<UserInputProps> = ({
             disabled
           />
         </div>
-        <div className="input-field">
+        <div className={`input-field ${isLocationError ? "error" : ""}`}>
           <InputField
             label="Longitude"
             type="number"

@@ -44,7 +44,10 @@ const CalculatorPage: React.FC = () => {
           longitude={longitude}
           fetchLocation={fetchLocation}
           handleCalculate={handleCalculate}
+          isVenueError={error.includes("Venue is missing")}
+          isCartError={error.includes("Cart value is missing")}
           isLocationError={error.includes("Location is missing")}
+          
         />
 
         <PriceSummary
