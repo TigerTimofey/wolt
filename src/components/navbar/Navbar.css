@@ -14,6 +14,7 @@
 .navbar-brand {
   font-size: 44px;
   font-weight: bold;
+  user-select: none;
 }
 
 .navbar.hide {
