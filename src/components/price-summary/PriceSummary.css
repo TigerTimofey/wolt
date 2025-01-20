@@ -27,21 +27,30 @@
 input {
   color: var(--main-dark-grey-color);
 }
+.container-card-info{
+  padding: 8px
+}
 .welcome-container h2 {
   color: var(--main-light-gray-color);
   font-family: "Omnes SemiBold", sans-serif;
 }
+
+
 @media (max-width: 768px) {
   .price-summary {
     margin-top: 30px;
   }
 }
 
-.price-summary:hover {
-  transform: translateY(-3px) scale(1.01);
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.15);
+
+.price-summary:hover  {
+  transform: translateY(-3px) scale(1.05); 
+  box-shadow: 0 8px 22px var(--levitation-card-color);
+
 }
+
 .welcome-container {
+  
   font-family: "Omnes SemiBold", sans-serif;
 }
 .price-summary h2 {

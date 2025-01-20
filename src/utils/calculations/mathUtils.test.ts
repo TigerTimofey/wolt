@@ -26,6 +26,7 @@ describe("mathUtils", () => {
   });
 
   describe("calculateDeliveryFee", () => {
+    
     test("calculates delivery fee based on distance ranges", () => {
       const distanceRanges = [
         { min: 0, max: 1000, a: 5, b: 2 },

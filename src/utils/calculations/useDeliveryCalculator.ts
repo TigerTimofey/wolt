@@ -9,6 +9,8 @@ import {
   isCartValueValid,
 } from "../../components/error-message/errorMessageUtils";
 
+
+
 const fetchVenueData = async (venueSlug: string) => {
   const venueStatic = await fetchVenueStaticData(venueSlug);
   const venueDynamic = await fetchVenueDynamicData(venueSlug);
