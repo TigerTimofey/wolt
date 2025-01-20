@@ -17,10 +17,9 @@ This project implements a web app that calculates the total price of a delivery 
 
 ## <span style="color:rgb(189, 198, 193)">Images</span>
 
-<img src="https://github.com/user-attachments/assets/5ab0966d-35a5-46b1-a83e-6eb21fe20a72" width="440"/>
-<img src="https://github.com/user-attachments/assets/85fa29c2-3e0b-4792-886a-c4fdbca7613f" width="400"/>
-<img src="https://github.com/user-attachments/assets/ff99e423-7cb8-41c4-9a29-39d837b69c99" width="400"/>
-<img src="https://github.com/user-attachments/assets/d28babad-55f7-49cc-a1ed-622349e32736" width="400"/>
+<img src="https://github.com/user-attachments/assets/5ab0966d-35a5-46b1-a83e-6eb21fe20a72" width="330"/>
+<img src="https://github.com/user-attachments/assets/85fa29c2-3e0b-4792-886a-c4fdbca7613f" width="300"/>
+
 
 
 
