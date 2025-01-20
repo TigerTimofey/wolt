@@ -1,8 +1,8 @@
 import React from "react";
-import dark from "/images/dark-light-theme/dark.png";
-import light from "/images/dark-light-theme/light.png";
-import highContrast from "/images/contrast/high-contrast.png";
-import lowContrast from "/images/contrast/low-contrast.png";
+import dark from "../../assets/images/dark-light-theme/dark.png";
+import light from "../../assets/images/dark-light-theme/light.png";
+import highContrast from "../../assets/images/contrast/high-contrast.png";
+import lowContrast from "../../assets/images/contrast/low-contrast.png";
 
 const themes: Record<string, Record<string, string>> = {
   light: {
@@ -21,6 +21,7 @@ const themes: Record<string, Record<string, string>> = {
     "--brand-darkblue-border-button-color": "none",
     "--error-font-color": "#ffffff",
     "--error-color": "#e03330c9",
+    "--levitation-card-color":"rgba(0, 0, 0, 0.15)"
   },
   dark: {
     "--main-component-info-color": "#ffffff",
@@ -35,6 +36,7 @@ const themes: Record<string, Record<string, string>> = {
     "--brand-blue-button-color": "#001924",
     "--brand-blue-button-color-hover": "#002231",
     "--brand-darkblue-border-button-color": "2px solid #0092d0",
+     "--levitation-card-color":"rgba(255, 255, 255, 0.466)"
   },
   highContrast: {
     "--main-component-info-color": "#000000",

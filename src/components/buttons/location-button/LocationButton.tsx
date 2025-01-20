@@ -15,6 +15,8 @@ const LocationButton: React.FC<LocationButtonProps> = ({
       className={`location-button ${isLocationError ? "shake" : ""}`}
       onClick={onFetchLocation}
       data-test-id="getLocation"
+      title="Click to fetch your location"
+      aria-label="Fetch location"
     >
       Locate
     </button>

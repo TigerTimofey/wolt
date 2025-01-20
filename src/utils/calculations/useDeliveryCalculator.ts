@@ -1,16 +1,15 @@
 import React, { useCallback } from "react";
-import {
-  fetchVenueStaticData,
-  fetchVenueDynamicData,
-} from "../../utils/fetch/api";
+import { fetchVenueStaticData, fetchVenueDynamicData } from "../fetch/api";
 import {
   calculateDistance,
   calculateDeliveryFee,
-} from "../../utils/calculations/mathUtils";
+} from "../calculations/mathUtils";
 import {
   generateErrorMessage,
   isCartValueValid,
 } from "../../components/error-message/errorMessageUtils";
+
+
 
 const fetchVenueData = async (venueSlug: string) => {
   const venueStatic = await fetchVenueStaticData(venueSlug);
@@ -72,7 +71,6 @@ export const useDeliveryCalculator = (
     );
     if (errorMessage) {
       setError(errorMessage);
-      console.log(errorMessage);
 
       return;
     }

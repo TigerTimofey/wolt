@@ -74,6 +74,14 @@
 .error-image {
   width: 300px;
 }
+
+
+.input-field.error input,
+.input-field.error select {
+  border-color: var(--error-color);
+  box-shadow: 0 0 0 1px rgba(255, 0, 0, 0.5);
+}
+
 @keyframes shake {
   0% {
     transform: translateX(0);

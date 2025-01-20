@@ -1,8 +1,8 @@
 import React from "react";
 import { convertToEUR, convertToKm } from "../../utils/calculations/convert";
 import "./PriceSummary.css";
-import yuhoStar from "/images/brand-yuho/star_yuho.png";
-import yuho from "/images/brand-yuho/curious_yuho.png";
+import yuhoStar from "../../assets/images/brand-yuho/star_yuho.png";
+import yuho from "../../assets/images/brand-yuho/curious_yuho.png";
 
 interface PriceSummaryProps {
   cartValue: number;
@@ -40,19 +40,34 @@ const PriceSummary: React.FC<PriceSummaryProps> = ({
           <div className="divider-price-summary"></div>
           <p>
             Cart value{" "}
-            <span data-raw-value={cartValue}>{convertToEUR(cartValue)} €</span>
+            <span
+              data-test-id="cartValue"
+              data-raw-value={cartValue}
+              aria-label={`Cart value: ${convertToEUR(cartValue)} €`}
+            >
+              {convertToEUR(cartValue)} €
+            </span>
           </p>
           <div className="divider-price-summary"></div>
           <p>
             Small order surcharge{" "}
-            <span data-raw-value={smallOrderSurcharge}>
+            <span
+              data-raw-value={smallOrderSurcharge}
+              aria-label={`Small order surcharge: ${convertToEUR(
+                smallOrderSurcharge
+              )} €`}
+            >
               {convertToEUR(smallOrderSurcharge)} €
             </span>
           </p>
           <div className="divider-price-summary"></div>
           <p>
             Delivery fee{" "}
-            <span data-raw-value={deliveryFee}>
+            <span
+              data-test-id="delivery-fee"
+              data-raw-value={deliveryFee}
+              aria-label={`Delivery fee: ${convertToEUR(deliveryFee)} €`}
+            >
               {convertToEUR(deliveryFee)} €
             </span>
           </p>
@@ -60,22 +75,31 @@ const PriceSummary: React.FC<PriceSummaryProps> = ({
 
           <p>
             Delivery distance{" "}
-            <span data-raw-value={deliveryDistance}>
-              {" "}
+            <span
+              data-raw-value={deliveryDistance}
+              aria-label={`Delivery distance: ${convertToKm(
+                deliveryDistance
+              )} km`}
+            >
               <span
                 className="info-icon"
-                title={`${convertToKm(deliveryDistance)} km`}
+                title={`${deliveryDistance} m`}
+                aria-label="Information about delivery distance"
               >
                 i
               </span>{" "}
-              {deliveryDistance} m
+              {convertToKm(deliveryDistance)} km
             </span>
           </p>
 
           <div className="divider-price-summary"></div>
           <p>
             Total price{" "}
-            <span data-raw-value={totalPrice}>
+            <span
+              data-test-id="total-price"
+              data-raw-value={totalPrice}
+              aria-label={`Total price: ${convertToEUR(totalPrice)} €`}
+            >
               {convertToEUR(totalPrice)} €
             </span>
           </p>
