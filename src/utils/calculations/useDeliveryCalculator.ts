@@ -1,12 +1,9 @@
 import React, { useCallback } from "react";
-import {
-  fetchVenueStaticData,
-  fetchVenueDynamicData,
-} from "../../utils/fetch/api";
+import { fetchVenueStaticData, fetchVenueDynamicData } from "../fetch/api";
 import {
   calculateDistance,
   calculateDeliveryFee,
-} from "../../utils/calculations/mathUtils";
+} from "../calculations/mathUtils";
 import {
   generateErrorMessage,
   isCartValueValid,

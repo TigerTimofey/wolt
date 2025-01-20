@@ -12,7 +12,7 @@ describe("useDeliveryCalculator", () => {
 
   const mockVenueStaticData = {
     venue_raw: {
-      location: { coordinates: [24.753574, 59.437] }, // Example coordinates
+      location: { coordinates: [24.753574, 59.437] },
     },
   };
 
@@ -35,10 +35,10 @@ describe("useDeliveryCalculator", () => {
     jest
       .spyOn(api, "fetchVenueDynamicData")
       .mockResolvedValue(mockVenueDynamicData);
-    jest.spyOn(mathUtils, "calculateDistance").mockReturnValue(450); // Distance in meters
+    jest.spyOn(mathUtils, "calculateDistance").mockReturnValue(450);
     jest
       .spyOn(mathUtils, "calculateDeliveryFee")
-      .mockImplementation((distance, basePrice) => {
+      .mockImplementation((_distance, basePrice) => {
         return basePrice;
       });
   });
@@ -76,7 +76,7 @@ describe("useDeliveryCalculator", () => {
   });
 
   it("should add surcharge for small orders", async () => {
-    const smallCartValue = "8"; // €8
+    const smallCartValue = "8";
     const { result } = renderHook(() =>
       useDeliveryCalculator(venueSlug, smallCartValue, latitude, longitude)
     );
