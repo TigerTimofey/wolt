@@ -17,6 +17,12 @@ This project implements a web app that calculates the total price of a delivery 
 
 ## <span style="color:rgb(189, 198, 193)">Images</span>
 
+<img src="https://github.com/user-attachments/assets/5ab0966d-35a5-46b1-a83e-6eb21fe20a72" width="220"/>
+<img src="https://github.com/user-attachments/assets/85fa29c2-3e0b-4792-886a-c4fdbca7613f" width="200"/>
+<img src="https://github.com/user-attachments/assets/ff99e423-7cb8-41c4-9a29-39d837b69c99" width="200"/>
+<img src="https://github.com/user-attachments/assets/d28babad-55f7-49cc-a1ed-622349e32736" width="200"/>
+
+
 
 ## <span style="color:rgb(189, 198, 193)">Installation</span>
 
@@ -26,13 +32,11 @@ Follow these steps to get your development environment set up and running:
 
 ####  <span style="color: #c2bf93;">Option 1: Unzip the Project</span>
 
-```bash
-If you have downloaded the project as a zip file, simply unzip it into your desired directory.
-```
+- If you have downloaded the project as a zip file, simply unzip it into your desired directory.
 
 ####  <span style="color: #c2bf93;">Option 2: Clone the repository ( <span style="color:rgb(188, 110, 46);">NB!</span> private at the moment)</span>
 
-Clone the repository to your local machine using the command below:
+- Clone the repository to your local machine using the command below:
 
 ```bash
 git clone https://github.com/TigerTimofey/wolt
@@ -62,8 +66,8 @@ npm run dev
 ### Step 5: Test the Application
 
 #### Run Tests to Verify Application Functionality
-
-> To ensure the application is working as expected, run the tests. The main test file can be found at:
+To ensure the application is working as expected, run the tests.
+>  The main test file can be found at:
 `src/utils/calculations/useDeliveryCalculator.test.tsx`
 
 Use the following command to run the tests:
