@@ -1,4 +1,5 @@
 import React from "react";
+import { allowOnlyNumbersAndDot } from "../../../../utils/validations/inputValidation";
 
 interface InputFieldProps {
   label: string;
@@ -19,13 +20,16 @@ const InputField: React.FC<InputFieldProps> = ({
   readOnly = false,
   disabled = false,
 }) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    allowOnlyNumbersAndDot(e, onChange);
+  };
   return (
     <div className="input-field">
       <input
         id={testId}
         type={type}
         value={value}
-        onChange={onChange}
+        onChange={handleChange}
         data-test-id={testId}
         placeholder=""
         disabled={disabled}

@@ -21,7 +21,6 @@ interface UserInputProps {
   isLocationError: boolean;
   isVenueError: boolean;
   isCartError: boolean;
-  
 }
 
 const UserInput: React.FC<UserInputProps> = ({
@@ -35,14 +34,12 @@ const UserInput: React.FC<UserInputProps> = ({
   handleCalculate,
   isLocationError,
   isVenueError,
-  isCartError
+  isCartError,
 }) => {
-
   return (
     <>
       <div className="user-input">
         <div className={`input-field ${isVenueError ? "error" : ""}`}>
-      
           <SelectField
             label="Venue Slug"
             value={venueSlug}
