@@ -5,6 +5,14 @@
 .input-field select {
   color: var(--main-light-gray-color);
 }
+.input-field select:hover {
+  cursor: pointer;
+}
+
+.input-field input[type="number"]:hover {
+  cursor: text;
+}
+
 .input-field select:user-valid {
   color: var(--main-dark-grey-color);
 }
@@ -88,4 +96,3 @@
   top: -0.9rem;
   font-size: var(--font-size--standart);
 }
-
