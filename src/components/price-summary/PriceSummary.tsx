@@ -22,7 +22,7 @@ const PriceSummary: React.FC<PriceSummaryProps> = ({
   deliveryNotAvailable,
 }) => {
   return (
-    <div className="price-summary-container">
+    <>
       {deliveryNotAvailable ? (
         <div className="error-container">
           <div className="container-card-error">
@@ -116,7 +116,7 @@ const PriceSummary: React.FC<PriceSummaryProps> = ({
           />
         </div>
       )}
-    </div>
+    </>
   );
 };
 

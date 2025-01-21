@@ -99,6 +99,7 @@ describe("UserInput Component", () => {
     });
   });
 
+  jest.useFakeTimers();
   test("calculate button triggers the handleCalculate function", () => {
     render(
       <UserInput isVenueError={false} isCartError={false} {...defaultProps} />
@@ -108,6 +109,9 @@ describe("UserInput Component", () => {
 
     fireEvent.click(calculateButton);
 
+    act(() => {
+      jest.advanceTimersByTime(1000);
+    });
     expect(mockHandleCalculate).toHaveBeenCalled();
   });
 

@@ -9,8 +9,6 @@ import {
   isCartValueValid,
 } from "../../components/error-message/errorMessageUtils";
 
-
-
 const fetchVenueData = async (venueSlug: string) => {
   const venueStatic = await fetchVenueStaticData(venueSlug);
   const venueDynamic = await fetchVenueDynamicData(venueSlug);
@@ -126,7 +124,7 @@ export const useDeliveryCalculator = (
       setDeliveryFee(deliveryFeeCalc);
       setDeliveryDistance(distance);
       setTotalPrice(total);
-    } catch (err) {
+    } catch {
       setError("Error fetching venue data.");
     }
   }, [venueSlug, cartValue, latitude, longitude]);

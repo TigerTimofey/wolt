@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useMemo } from "react";
+import debounce from "lodash.debounce";
 import "./CalculateButton.css";
 
 interface CalculateButtonProps {
@@ -13,10 +14,12 @@ const CalculateButton: React.FC<CalculateButtonProps> = ({
   disabled = false,
   testId = "calculate-button",
 }) => {
+  const debouncedOnClick = useMemo(() => debounce(onClick, 1000), [onClick]);
+
   return (
     <button
       className="calculate-button"
-      onClick={onClick}
+      onClick={debouncedOnClick}
       disabled={disabled}
       data-test-id={testId}
       title="Click to calculate your order"

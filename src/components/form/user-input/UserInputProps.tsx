@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState, useEffect, useCallback } from "react";
+import debounce from "lodash.debounce";
+
 import InputField from "./input-fields/InputField";
 import LocationButton from "../../buttons/location-button/LocationButton";
 import CalculateButton from "../../buttons/calculate-button/CalculateButton";
@@ -36,6 +38,27 @@ const UserInput: React.FC<UserInputProps> = ({
   isVenueError,
   isCartError,
 }) => {
+  const [prevCartValue, setPrevCartValue] = useState(cartValue);
+  const [prevVenueSlug, setPrevVenueSlug] = useState(venueSlug);
+
+  // Обработчик с debounce для calculate
+  const debouncedCalculate = useCallback(
+    debounce(() => {
+      if (cartValue !== prevCartValue || venueSlug !== prevVenueSlug) {
+        handleCalculate();
+        setPrevCartValue(cartValue);
+        setPrevVenueSlug(venueSlug);
+      }
+    }, 2000),
+    [cartValue, venueSlug, prevCartValue, prevVenueSlug, handleCalculate]
+  );
+
+  // Следим за изменением данных
+  useEffect(() => {
+    debouncedCalculate();
+    return debouncedCalculate.cancel; // Отмена дебаунса при размонтировании
+  }, [cartValue, venueSlug, debouncedCalculate]);
+
   return (
     <>
       <div className="user-input">
