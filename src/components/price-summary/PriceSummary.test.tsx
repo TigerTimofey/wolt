@@ -132,7 +132,6 @@ describe("PriceSummary Component", () => {
       />
     );
 
-    // Check if the image for "Location not served" is displayed
     const image = screen.getByAltText(/Yuho cant deliver to this location/);
     expect(image).toBeInTheDocument();
   });
@@ -168,7 +167,6 @@ describe("PriceSummary Component", () => {
       />
     );
 
-    // Ensure the location not served message is rendered
     expect(screen.getByText("Location not served")).toBeInTheDocument();
     expect(
       screen.getByAltText("Yuho cant deliver to this location")
