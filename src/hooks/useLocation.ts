@@ -12,23 +12,15 @@ const useLocation = () => {
         timeout: 5000,
         maximumAge: Infinity,
       };
+
       navigator.geolocation.getCurrentPosition(
         (position) => {
-          // tallinn 0,45 km
-          setLongitude((24.759395).toString());
-          setLatitude((59.43869).toString());
+          setLatitude(position.coords.latitude.toString());
+          setLongitude(position.coords.longitude.toString());
         },
         () => setError("Unable to retrieve location."),
         options
       );
-      // navigator.geolocation.getCurrentPosition(
-      //   (position) => {
-      //     setLatitude(position.coords.latitude.toString());
-      //     setLongitude(position.coords.longitude.toString());
-      //   },
-      //   () => setError("Unable to retrieve location."),
-      //   options
-      // );
     } else {
       setError("Geolocation is not supported by this browser.");
     }
