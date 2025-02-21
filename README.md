@@ -1,4 +1,4 @@
-[![Demo Video](https://img.shields.io/badge/Live%20Demo-Available-blue)](https://drive.google.com/file/d/1sVxJRQz2rwPI8eTkF4EcH0SNp5hTru3L/view?usp=sharing)
+[![Demo Video](https://img.shields.io/badge/Live%20Demo-Available-blue)]([https://drive.google.com/file/d/1sVxJRQz2rwPI8eTkF4EcH0SNp5hTru3L/view?usp=sharing](https://youtu.be/-7XJbCREe1M))
 
 # Delivery Order Price Calculator
 
