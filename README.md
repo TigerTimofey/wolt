@@ -15,6 +15,10 @@
 This project implements a web app that calculates the total price of a delivery order, including delivery fees and surcharges, based on user input. The application is built using **React** and **TypeScript**. <br/><br/>
 The app fetches venue-related data from the Home Assignment API to calculate the prices for delivery, based on input fields such as cart value and user location.<br/>
 
+
+https://github.com/user-attachments/assets/a61892d2-3834-433d-8ca0-7e11195e224d
+
+
 > All the UI is written in CSS, and no additional UI libraries are being used.
 
 ## <span style="color:rgb(189, 198, 193)">Installation</span>
